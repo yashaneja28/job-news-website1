@@ -21,7 +21,7 @@
         <h1>Job News Website - RPSC & More</h1>
     </header>
 
-    <!-- Hamburger Icon -->
+    <!-- Hamburger Icon (Three Horizontal Lines) -->
     <div class="three-dots-container">
         <button class="three-dots-btn" onclick="togglePanel()">
             <span class="bar"></span>
@@ -33,9 +33,13 @@
     <!-- Sliding Panel Section -->
     <div id="sidePanel" class="side-panel">
         <div class="panel-content">
+            <!-- Home Button -->
             <a href="index.html" class="panel-link">Home</a>
+
+            <!-- Exams Section -->
             <button class="dropdown-btn" onclick="toggleExamDropdown()">Exams</button>
             <div class="dropdown-content">
+                <!-- RPSC Dropdown inside Exams -->
                 <button class="dropdown-btn" onclick="toggleRPSCDropdown()">RPSC</button>
                 <div class="dropdown-content rpsc-dropdown">
                     <a href="https://rpsc.rajasthan.gov.in/forthcomingexaminations" target="_blank">Upcoming Exams</a>
@@ -43,14 +47,16 @@
                     <a href="https://rpsc.rajasthan.gov.in/applyonline" target="_blank">Apply Online</a>
                 </div>
             </div>
+
+            <!-- About Button -->
             <a href="about.html" class="panel-link">About</a>
         </div>
     </div>
 
-    <!-- Content Section -->
+    <!-- Section for Other Content -->
     <section class="content-box">
         <h2>Home Section</h2>
-        <p>Latest Updates.</p>
+        <p>Here you can add details about the latest job news and updates.</p>
     </section>
 
     <!-- Footer Section -->
