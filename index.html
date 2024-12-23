@@ -7,27 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Background Image Section -->
     <div class="background-image"></div>
 
     <!-- News Alert Section -->
     <div class="news-alert">
-        <span>Latest Job Alerts</span>
+        <span>Rajasthan RPSC Latest Updates: Upcoming Exams, Apply Online, and More!</span>
     </div>
 
     <!-- Header Section -->
     <header>
-        <h1>Job News Website - RPSC & More</h1>
+        <h1>Jobs in Rajasthan</h1>
     </header>
 
-    <!-- Hamburger Icon (Three Horizontal Lines) -->
-    <div class="three-dots-container">
-        <button class="three-dots-btn" onclick="togglePanel()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+    <!-- Hamburger Icon -->
+    <div class="three-dots-container" onclick="togglePanel()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
     <!-- Sliding Panel Section -->
@@ -45,6 +42,15 @@
                     <a href="https://rpsc.rajasthan.gov.in/forthcomingexaminations" target="_blank">Upcoming Exams</a>
                     <a href="https://rpsc.rajasthan.gov.in/syllabus" target="_blank">Syllabus</a>
                     <a href="https://rpsc.rajasthan.gov.in/applyonline" target="_blank">Apply Online</a>
+                </div>
+                
+                <!-- RSSB Dropdown inside Exams -->
+                <button class="dropdown-btn" onclick="toggleRSSBDropdown()">RSSB</button>
+                <div class="dropdown-content rssb-dropdown">
+                    <a href="https://rssb.rajasthan.gov.in/news" target="_blank">Latest News</a>
+                    <a href="https://rssb.rajasthan.gov.in/examscheme" target="_blank">Syllabus</a>
+                    <a href="https://sso.rajasthan.gov.in/" target="_blank">Apply Online</a>
+                    <a href="https://rssb.rajasthan.gov.in/oldpapers" target="_blank">Question Papers</a>
                 </div>
             </div>
 
