@@ -1,0 +1,166 @@
+/* Apply a background image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('books-background.jpg') no-repeat center center/cover;
+    z-index: -1;
+    filter: blur(10px);
+    transition: filter 0.3s ease-in-out;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #003366;
+    background: transparent;
+}
+
+.news-alert {
+    background-color: rgba(255, 165, 0, 0.8);
+    color: white;
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    animation: scrollNews 20s linear infinite;
+}
+
+@keyframes scrollNews {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    color: #003366;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 50px;
+    z-index: 10;
+}
+
+.three-dots-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.three-dots-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.bar {
+    display: block;
+    width: 35px;
+    height: 5px;
+    margin: 6px auto;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.side-panel {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.8);
+    color: white;
+    transition: left 0.3s ease, background-color 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    backdrop-filter: blur(10px);
+}
+
+.panel-content {
+    margin-top: 50px;
+}
+
+.panel-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.panel-link:hover {
+    background-color: #00509e;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-btn {
+    background-color: #00509e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #003366;
+    min-width: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #00509e;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* White Box for Content */
+.content-box {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

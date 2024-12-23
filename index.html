@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job News Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Image Section -->
+    <div class="background-image"></div>
+
+    <!-- News Alert Section -->
+    <div class="news-alert">
+        <span>Latest Job Alerts</span>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Job News Website - RPSC & More</h1>
+    </header>
+
+    <!-- Hamburger Icon -->
+    <div class="three-dots-container">
+        <button class="three-dots-btn" onclick="togglePanel()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+
+    <!-- Sliding Panel Section -->
+    <div id="sidePanel" class="side-panel">
+        <div class="panel-content">
+            <a href="index.html" class="panel-link">Home</a>
+            <button class="dropdown-btn" onclick="toggleExamDropdown()">Exams</button>
+            <div class="dropdown-content">
+                <button class="dropdown-btn" onclick="toggleRPSCDropdown()">RPSC</button>
+                <div class="dropdown-content rpsc-dropdown">
+                    <a href="https://rpsc.rajasthan.gov.in/forthcomingexaminations" target="_blank">Upcoming Exams</a>
+                    <a href="https://rpsc.rajasthan.gov.in/syllabus" target="_blank">Syllabus</a>
+                    <a href="https://rpsc.rajasthan.gov.in/applyonline" target="_blank">Apply Online</a>
+                </div>
+            </div>
+            <a href="about.html" class="panel-link">About</a>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <section class="content-box">
+        <h2>Home Section</h2>
+        <p>Latest Updates.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>© 2024 Job News Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
