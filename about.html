@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <!-- Background Image Section -->
     <div class="background-image"></div>
 
@@ -17,12 +16,10 @@
     </header>
 
     <!-- Hamburger Icon -->
-    <div class="three-dots-container">
-        <button class="three-dots-btn" onclick="togglePanel()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+    <div class="three-dots-container" onclick="togglePanel()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 
     <!-- Sliding Panel Section -->
@@ -37,6 +34,14 @@
                     <a href="https://rpsc.rajasthan.gov.in/syllabus" target="_blank">Syllabus</a>
                     <a href="https://rpsc.rajasthan.gov.in/applyonline" target="_blank">Apply Online</a>
                 </div>
+
+                <button class="dropdown-btn" onclick="toggleRSSBDropdown()">RSSB</button>
+                <div class="dropdown-content rssb-dropdown">
+                    <a href="https://rssb.rajasthan.gov.in/news" target="_blank">Latest News</a>
+                    <a href="https://rssb.rajasthan.gov.in/examscheme" target="_blank">Syllabus</a>
+                    <a href="https://sso.rajasthan.gov.in/" target="_blank">Apply Online</a>
+                    <a href="https://rssb.rajasthan.gov.in/oldpapers" target="_blank">Question Papers</a>
+                </div>
             </div>
             <a href="about.html" class="panel-link">About</a>
         </div>
@@ -47,8 +52,7 @@
         <h2>Contact Information</h2>
         <p>
             Email: 
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saneja1975@gmail.com&su=Job%20News%20Website%20Inquiry&body=Hello%20Saneja,"
-               target="_blank">saneja1975@gmail.com</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saneja1975@gmail.com&su=Job%20News%20Website%20Inquiry&body=Hello%20Saneja," target="_blank">saneja1975@gmail.com</a>
         </p>
         <p>Phone: +91 9214030433</p>
     </section>
