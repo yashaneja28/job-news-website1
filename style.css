@@ -1,3 +1,18 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #00509E;
+    background: transparent;
+}
+
 /* Background Image */
 .background-image {
     position: fixed;
@@ -8,35 +23,131 @@
     background: url('books-background.jpg') no-repeat center center/cover;
     z-index: -1;
     filter: blur(10px);
-    transition: filter 0.3s ease-in-out;
 }
 
-/* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #003366;
-    background: transparent;
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid #00509E;
+    z-index: 2; /* Ensure header stays above other elements */
+    position: relative;
 }
 
-/* News Alert Bar */
-.news-alert {
-    background-color: rgba(0, 102, 204, 0.7); /* Glass-blue color with transparency */
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00509E;
+}
+
+/* Hamburger Icon */
+.three-dots-container {
+    position: absolute;
+    top: 20px;  /* Adjusted to move the button down a little */
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px; /* Reduced height for the hamburger icon */
+    width: 30px;  /* Reduced width */
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #00509E;
+    transition: all 0.3s ease;
+}
+
+/* Side Panel */
+.side-panel {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.9);
     color: white;
-    padding: 10px 0;
+    transition: left 0.3s ease;
+    z-index: 100;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.panel-content {
+    padding: 20px;
+    margin-top: 40px; /* Space below hamburger button */
+}
+
+.panel-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.panel-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    margin-left: 15px;
+}
+
+.rpsc-dropdown,
+.rssb-dropdown {
+    display: none;
+}
+
+/* News Alert Section */
+.news-alert {
+    position: fixed;
+    top: 90px; /* Shifted slightly lower for better visibility */
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 51, 102, 0.8); /* Darker blue transparent background */
+    color: white;
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    animation: scrollNews 10s linear infinite; /* Speed of scrolling */
-    backdrop-filter: blur(10px); /* Glassy blur effect */
+    z-index: 1; /* Ensure it appears below the header */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensure the text doesn't overflow */
 }
 
-@keyframes scrollNews {
+/* Moving text inside the news bar */
+.news-alert span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: moveText 10s linear infinite;
+}
+
+/* Animation to move only the text */
+@keyframes moveText {
     0% {
         transform: translateX(100%);
     }
@@ -45,174 +156,47 @@ body {
     }
 }
 
-/* Header Styling */
-header {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
-    color: #003366;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 50px;
-    z-index: 10;
-}
-
-/* Hamburger Menu */
-.three-dots-container {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #00509e;
-    border-radius: 8px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-.three-dots-container:hover {
-    background-color: #003366;
-}
-
-.bar {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Side Panel */
-.side-panel {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: rgba(0, 51, 102, 0.9);
-    color: white;
-    transition: left 0.3s ease;
-    padding: 20px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    backdrop-filter: blur(10px);
-}
-
-.panel-content {
-    margin-top: 50px;
-}
-
-.panel-link {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-    font-size: 16px;
-}
-
-.panel-link:hover {
-    background-color: #00509e;
-    padding-left: 10px;
-    border-radius: 5px;
-}
-
-.dropdown-btn {
-    background-color: #00509e;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-    width: 100%;
-    text-align: left;
-    margin: 5px 0;
-}
-
-.dropdown-content {
-    display: none;
-    background-color: #003366;
-    min-width: 200px;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #00509e;
-}
-
-/* Content Section */
+/* Content Box */
 .content-box {
-    background-color: rgba(255, 255, 255, 0.7);
+    margin: 80px auto;
     padding: 20px;
-    margin-top: 80px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .content-box h2 {
-    margin-top: 0;
-    color: #003366;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #00509E;
 }
 
 .content-box p {
     line-height: 1.6;
+    font-size: 1.1rem;
     color: #333;
 }
 
-/* Footer */
+/* Footer Section */
 footer {
-    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 10px 0;
+    padding: 10px;
+    background: rgba(0, 51, 102, 0.9);
+    color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .side-panel {
-        width: 100%;
-    }
-
-    .three-dots-container {
-        top: 10px;
-        left: 10px;
-    }
-
-    .content-box {
-        margin-top: 100px;
-        padding: 15px;
-    }
+/* Utility Classes */
+a {
+    color: #00509E;
+    text-decoration: none;
 }
 
-/* Open Side Panel Animation */
-.three-dots-container.open .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.three-dots-container.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.three-dots-container.open .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+a:hover {
+    text-decoration: underline;
 }
