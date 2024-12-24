@@ -1,72 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Background Image Section -->
-    <div class="background-image"></div>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Prevent text selection */
+}
 
-    <!-- Header Section -->
-    <header>
-        <h1>About Us</h1>
-    </header>
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #00509E;
+    background: transparent;
+}
 
-    <!-- Hamburger Icon -->
-    <div class="three-dots-container" onclick="togglePanel()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+/* Background Image */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('books-background.jpg') no-repeat center center/cover;
+    z-index: -1;
+    filter: blur(10px);
+}
 
-    <!-- Sliding Panel Section -->
-    <div id="sidePanel" class="side-panel">
-        <div class="panel-content">
-            <a href="index.html" class="panel-link">Home</a>
-            <button class="dropdown-btn" onclick="toggleExamDropdown()">Exams</button>
-            <div class="dropdown-content">
-                <button class="dropdown-btn" onclick="toggleRPSCDropdown()">RPSC</button>
-                <div class="dropdown-content rpsc-dropdown">
-                    <a href="https://rpsc.rajasthan.gov.in/forthcomingexaminations" target="_blank">Upcoming Exams</a>
-                    <a href="https://rpsc.rajasthan.gov.in/syllabus" target="_blank">Syllabus</a>
-                    <a href="https://rpsc.rajasthan.gov.in/applyonline" target="_blank">Apply Online</a>
-                </div>
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid #00509E;
+    z-index: 2; /* Ensure header stays above other elements */
+    position: relative;
+}
 
-                <button class="dropdown-btn" onclick="toggleRSSBDropdown()">RSSB</button>
-                <div class="dropdown-content rssb-dropdown">
-                    <a href="https://rssb.rajasthan.gov.in/news" target="_blank">Latest News</a>
-                    <a href="https://rssb.rajasthan.gov.in/examscheme" target="_blank">Syllabus</a>
-                    <a href="https://sso.rajasthan.gov.in/" target="_blank">Apply Online</a>
-                    <a href="https://rssb.rajasthan.gov.in/oldpapers" target="_blank">Question Papers</a>
-                </div>
-            </div>
-            <a href="about.html" class="panel-link">About</a>
-        </div>
-    </div>
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00509E;
+}
 
-    <!-- About Section -->
-    <section class="content-box">
-        <h2>Contact Information</h2>
-        <p>
-            Email: 
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saneja1975@gmail.com&su=Job%20News%20Website%20Inquiry&body=Hello%20Saneja," target="_blank">saneja1975@gmail.com</a>
-        </p>
-        <p>Phone: +91 9214030433</p>
-    </section>
+/* Hamburger Icon */
+.three-dots-container {
+    position: absolute;
+    top: 20px; /* Adjusted to move the button down a little */
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px; /* Reduced height for the hamburger icon */
+    width: 30px; /* Reduced width */
+}
 
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 Job News Website. All rights reserved.</p>
-    </footer>
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #00509E;
+    transition: all 0.3s ease;
+}
 
-    <script src="script.js"></script>
-    <!-- Telegram Button -->
-<a href="https://t.me/semitra" target="_blank" class="telegram-button">
-    <img src="telegram-logo.png" alt="Telegram" class="telegram-icon">
-</a>
+/* Side Panel */
+.side-panel {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.9);
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 100;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+}
 
-</body>
-</html>
+.panel-content {
+    padding: 20px;
+    margin-top: 40px; /* Space below hamburger button */
+}
+
+.panel-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.panel-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Button */
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    margin-left: 15px;
+    padding-left: 10px; /* Adds padding for the inner dropdown */
+}
+
+.rpsc-dropdown,
+.rssb-dropdown {
+    display: none;
+    margin-left: 15px;
+}
+
+/* Align buttons under RPSC and RSSB vertically and make them more visible */
+.rpsc-dropdown a,
+.rssb-dropdown a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+    font-size: 16px; /* Adjust font size for better readability */
+}
+
+.rpsc-dropdown a:hover,
+.rssb-dropdown a:hover {
+    background-color: #003366; /* Slightly darker blue on hover */
+    color: white;
+}
+
+/* Apply padding and margin adjustments to create space between dropdown content */
+.dropdown-content a {
+    margin-bottom: 5px; /* Space between each button */
+}
+
+/* News Alert Section */
+.news-alert {
+    position: fixed;
+    top: 90px; /* Shifted slightly lower for better visibility */
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 51, 102, 0.8); /* Darker blue transparent background */
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1; /* Ensure it appears below the header */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Ensure the text doesn't overflow */
+}
+
+/* Moving text inside the news bar */
+.news-alert span {
+    display: inline-block;
+    white-space: nowrap;
+    animation: moveText 10s linear infinite;
+}
+
+/* Animation to move only the text */
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Content Box */
+.content-box {
+    margin: 80px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.content-box h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #00509E;
+}
+
+.content-box p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 51, 102, 0.9);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Utility Classes */
+a {
+    color: #00509E;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Telegram Button */
+.telegram-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #0088cc;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.telegram-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.telegram-icon {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
