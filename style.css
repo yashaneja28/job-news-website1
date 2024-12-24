@@ -100,7 +100,7 @@ header h1 {
     border: none;
     color: white;
     text-align: left;
-    padding: 10px;
+    padding: 12px;
     font-size: 18px;
     width: 100%;
     cursor: pointer;
@@ -115,11 +115,58 @@ header h1 {
 .dropdown-content {
     display: none;
     margin-left: 15px;
+    padding-left: 10px; /* Adds padding for the inner dropdown */
 }
 
 .rpsc-dropdown,
 .rssb-dropdown {
     display: none;
+    margin-left: 15px;
+}
+
+/* Align buttons under RPSC and RSSB vertically and make them more visible */
+.rpsc-dropdown a, .rssb-dropdown a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+    font-size: 16px; /* Adjust font size for better readability */
+}
+
+.rpsc-dropdown a:hover, .rssb-dropdown a:hover {
+    background-color: #003366; /* Slightly darker blue on hover */
+    color: white;
+}
+
+/* Making the dropdown buttons stand out */
+.dropdown-btn {
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Apply padding and margin adjustments to create space between dropdown content */
+.dropdown-content a {
+    margin-bottom: 5px; /* Space between each button */
+}
+
+/* Extra spacing for dropdown to make them stand out */
+.rpsc-dropdown, .rssb-dropdown {
+    padding-left: 15px;
+    padding-top: 5px; /* Adds spacing at the top */
+    margin-top: 10px; /* Space between dropdown and other content */
 }
 
 /* News Alert Section */
