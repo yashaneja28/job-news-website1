@@ -1,3 +1,37 @@
+const newsUrl = "https://raw.githubusercontent.com/yashaneja28/job-news-website1/main/news.json";  // URL of the raw JSON file on GitHub
+
+fetch(newsUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to load news');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const newsContainer = document.querySelector('.content-box');
+        
+        // Loop through each news item and create HTML content
+        data.forEach(newsItem => {
+            const newsElement = document.createElement('div');
+            newsElement.classList.add('news-item');
+            
+            newsElement.innerHTML = `
+                <h3>${newsItem.title}</h3>
+                <p><strong>Date:</strong> ${newsItem.date}</p>
+                <p>${newsItem.description}</p>
+                <a href="${newsItem.link}" target="_blank">Read more</a>
+                <img src="${newsItem.image}" alt="${newsItem.title}" class="news-image">
+            `;
+            
+            // Append to the content box
+            newsContainer.appendChild(newsElement);
+        });
+    })
+    .catch(error => {
+        const newsContainer = document.querySelector('.content-box');
+        newsContainer.innerHTML = `<p class="error-message">${error.message}</p>`;
+    });
+
 // Function to toggle the side panel
 function togglePanel() {
     const sidePanel = document.getElementById("sidePanel");
@@ -30,37 +64,3 @@ function toggleRSSBDropdown() {
     const rssbDropdown = document.querySelector(".rssb-dropdown");
     rssbDropdown.style.display = rssbDropdown.style.display === "block" ? "none" : "block";
 }
-
-// Fetch the news from the JSON file
-const newsUrl = "https://raw.githubusercontent.com/yashaneja28/job-news-website1/main/news.json";  // Updated URL
-
-fetch(newsUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to load news');
-        }
-        return response.json();
-    })
-    .then(data => {
-        const newsContainer = document.querySelector('.content-box');
-        
-        // Loop through each news item and create HTML content
-        data.forEach(newsItem => {
-            const newsElement = document.createElement('div');
-            newsElement.classList.add('news-item');
-            
-            newsElement.innerHTML = `
-                <h3>${newsItem.title}</h3>
-                <p><strong>Date:</strong> ${newsItem.date}</p>
-                <p>${newsItem.description}</p>
-                <a href="${newsItem.link}" target="_blank">Read more</a>
-            `;
-            
-            // Append to the content box
-            newsContainer.appendChild(newsElement);
-        });
-    })
-    .catch(error => {
-        const newsContainer = document.querySelector('.content-box');
-        newsContainer.innerHTML = `<p class="error-message">${error.message}</p>`;
-    });
