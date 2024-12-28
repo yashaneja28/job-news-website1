@@ -1,32 +1,20 @@
 [
-    {
-        "title": "Rajasthan Government Job Alert - December 2024",
-        "date": "2024-12-28",
-        "description": "A new government job opening in Rajasthan for various posts. Check eligibility and apply online.",
-        "link": "https://example.com/rajasthan-job-december-2024"
-    },
-    {
-        "title": "RPSC Exam Updates - January 2025",
-        "date": "2024-12-27",
-        "description": "Rajasthan Public Service Commission (RPSC) has released the exam schedule for January 2025. Get the full list of upcoming exams.",
-        "link": "https://example.com/rpsc-exam-schedule-2025"
-    },
-    {
-        "title": "Rajasthan RSSB Recruitment - Apply Now",
-        "date": "2024-12-26",
-        "description": "RSSB Rajasthan is hiring for several positions. Visit the official website to apply online before the deadline.",
-        "link": "https://example.com/rssb-recruitment-apply"
-    },
-    {
-        "title": "Job News: New Employment Opportunities in Rajasthan",
-        "date": "2024-12-25",
-        "description": "Explore the latest job vacancies in Rajasthan. Government and private sector jobs available.",
-        "link": "https://example.com/job-news-rajasthan-december-2024"
-    },
-    {
-        "title": "Exam Preparation Tips for RPSC and RSSB",
-        "date": "2024-12-24",
-        "description": "Get the best tips and resources to prepare for the RPSC and RSSB exams. Boost your chances of success.",
-        "link": "https://example.com/exam-preparation-rpsc-rssb"
-    }
+  {
+    "title": "Job Update 1",
+    "date": "2024-12-28",
+    "description": "Details about job update 1.",
+    "link": "https://example.com/job1"
+  },
+  {
+    "title": "Job Update 2",
+    "date": "2024-12-29",
+    "description": "Details about job update 2.",
+    "link": "https://example.com/job2"
+  },
+  {
+    "title": "Job Update 3",
+    "date": "2024-12-30",
+    "description": "Details about job update 3.",
+    "link": "https://example.com/job3"
+  }
 ]
