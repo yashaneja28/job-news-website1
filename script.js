@@ -19,8 +19,8 @@ fetch(newsUrl)
                 <h3>${newsItem.title}</h3>
                 <p><strong>Date:</strong> ${newsItem.date}</p>
                 <p>${newsItem.description}</p>
-                <a href="${newsItem.link}" target="_blank">Read more</a>
                 <img src="${newsItem.image}" alt="${newsItem.title}" class="news-image">
+                <a href="${newsItem.link}" target="_blank" class="news-link">Go to the job post</a>
             `;
             
             // Append to the content box
