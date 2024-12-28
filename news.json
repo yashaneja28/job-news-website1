@@ -3,18 +3,14 @@
     "title": "Job Update 1",
     "date": "2024-12-28",
     "description": "Details about job update 1.",
-    "link": "https://example.com/job1"
+    "link": "https://example.com/job1",
+    "image": "https://raw.githubusercontent.com/yashaneja28/job-news-website1/main/images/yash.jpg"
   },
   {
     "title": "Job Update 2",
     "date": "2024-12-29",
     "description": "Details about job update 2.",
-    "link": "https://example.com/job2"
-  },
-  {
-    "title": "Job Update 3",
-    "date": "2024-12-30",
-    "description": "Details about job update 3.",
-    "link": "https://example.com/job3"
+    "link": "https://example.com/job2",
+    "image": "https://raw.githubusercontent.com/yashaneja28/job-news-website1/main/images/yash.jpg"
   }
 ]
