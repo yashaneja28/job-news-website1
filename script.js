@@ -31,37 +31,37 @@ function toggleRSSBDropdown() {
     rssbDropdown.style.display = rssbDropdown.style.display === "block" ? "none" : "block";
 }
 
-// Function to fetch and display news from JSON
-async function fetchNews() {
-    const url = 'https://yourusername.github.io/news-website/news.json'; // Replace with your GitHub Pages URL
+// Function to fetch and display news from the JSON file
+function fetchNews() {
+    // URL of the news.json file (update this URL based on your GitHub Pages link)
+    const newsUrl = "https://raw.githubusercontent.com/yourusername/job-news-website/main/news.json";
 
-    try {
-        const response = await fetch(url);
-        const newsItems = await response.json();
+    fetch(newsUrl)
+        .then(response => response.json())
+        .then(data => {
+            const newsContainer = document.querySelector(".content-box"); // The container where news will be displayed
+            newsContainer.innerHTML = ''; // Clear previous news content
 
-        // Get the container to display news
-        const newsContainer = document.getElementById('news-container');
+            data.forEach(newsItem => {
+                // Create a news element for each item
+                const newsElement = document.createElement("div");
+                newsElement.classList.add("news-item");
 
-        // Clear any existing content
-        newsContainer.innerHTML = '';
+                newsElement.innerHTML = `
+                    <h3>${newsItem.title}</h3>
+                    <p><strong>Date:</strong> ${newsItem.date}</p>
+                    <p>${newsItem.description}</p>
+                    <a href="${newsItem.link}" target="_blank">Read more</a>
+                `;
 
-        // Render each news item
-        newsItems.forEach(news => {
-            const newsHTML = `
-                <div class="news-item">
-                    <h3><a href="${news.link}" target="_blank">${news.title}</a></h3>
-                    <p>${news.description}</p>
-                    <small>${news.date}</small>
-                </div>
-            `;
-            newsContainer.innerHTML += newsHTML;
+                // Append the news item to the container
+                newsContainer.appendChild(newsElement);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching news:", error);
         });
-    } catch (error) {
-        console.error('Error fetching news:', error);
-        const newsContainer = document.getElementById('news-container');
-        newsContainer.innerHTML = '<p>Failed to load news. Please try again later.</p>';
-    }
 }
 
-// Call the fetchNews function to load news on page load
-fetchNews();
+// Call the fetchNews function when the page loads
+window.onload = fetchNews;
