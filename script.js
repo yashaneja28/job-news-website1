@@ -1,40 +1,3 @@
-// Only execute the following code on the homepage (index.html)
-if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
-    const newsUrl = "https://raw.githubusercontent.com/yashaneja28/job-news-website1/main/news.json";  // URL of the raw JSON file on GitHub
-
-    fetch(newsUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load news');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const newsContainer = document.querySelector('.content-box');
-            
-            // Loop through each news item and create HTML content
-            data.forEach(newsItem => {
-                const newsElement = document.createElement('div');
-                newsElement.classList.add('news-item');
-                
-                newsElement.innerHTML = `
-                    <h3>${newsItem.title}</h3>
-                    <p><strong>Date:</strong> ${newsItem.date}</p>
-                    <p>${newsItem.description}</p>
-                    <img src="${newsItem.image}" alt="${newsItem.title}" class="news-image">
-                    <a href="${newsItem.link}" target="_blank" class="news-link">Go to the job post</a>
-                `;
-                
-                // Append to the content box
-                newsContainer.appendChild(newsElement);
-            });
-        })
-        .catch(error => {
-            const newsContainer = document.querySelector('.content-box');
-            newsContainer.innerHTML = `<p class="error-message">${error.message}</p>`;
-        });
-}
-
 // Function to toggle the side panel
 function togglePanel() {
     const sidePanel = document.getElementById("sidePanel");
@@ -67,3 +30,18 @@ function toggleRSSBDropdown() {
     const rssbDropdown = document.querySelector(".rssb-dropdown");
     rssbDropdown.style.display = rssbDropdown.style.display === "block" ? "none" : "block";
 }
+
+// Voiceflow Chatbot Integration
+(function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() {
+        window.voiceflow.chat.load({
+            verify: { projectID: '67ac383cf34345f8b1850923' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production'
+        });
+    };
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+    v.type = "text/javascript";
+    s.parentNode.insertBefore(v, s);
+})(document, 'script');
